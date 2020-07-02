@@ -43,7 +43,6 @@ class OrderController {
       })
       .catch(err=>{
         res.status(500).json(err);
-        console.log(err);
       })
   }
 
@@ -75,7 +74,6 @@ class OrderController {
         res.status(200).json(data)
       })
       .catch(err=>{
-        console.log(err);
         next(err);
       })
   }
@@ -116,10 +114,9 @@ class OrderController {
         })
       })
       .then(data=>{
-        res.status(200).json(data)
+        res.status(200).json({ message: 'orders has been updated to paid'})
       })
       .catch(err=>{
-        console.log(err);
         next(err);
       })
   }
