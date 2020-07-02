@@ -31,7 +31,7 @@ export default new Vuex.Store({
     getProducts({ commit }) {
       Axios({
         method: 'GET',
-        url: 'http://localhost:3000/customer-products',
+        url: 'https://sabacomputer.herokuapp.com/customer-products',
         headers: {
           access_token: localStorage.access_token,
         },
@@ -46,7 +46,7 @@ export default new Vuex.Store({
     getCart({ commit }) {
       Axios({
         method: 'GET',
-        url: 'http://localhost:3000/orders/order',
+        url: 'https://sabacomputer.herokuapp.com/orders/order',
         headers: {
           access_token: localStorage.access_token,
         },
@@ -61,7 +61,7 @@ export default new Vuex.Store({
     getCartHistory({ commit }) {
       Axios({
         method: 'GET',
-        url: 'http://localhost:3000/orders/paid',
+        url: 'https://sabacomputer.herokuapp.com/orders/paid',
         headers: {
           access_token: localStorage.access_token,
         },
@@ -77,7 +77,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         Axios({
           method: 'GET',
-          url: `http://localhost:3000/customer-products/${productId}`,
+          url: `https://sabacomputer.herokuapp.com/customer-products/${productId}`,
           headers: {
             access_token: localStorage.access_token,
           },
@@ -93,7 +93,7 @@ export default new Vuex.Store({
     createCart(context, payload) {
       Axios({
         method: 'POST',
-        url: 'http://localhost:3000/orders',
+        url: 'https://sabacomputer.herokuapp.com/orders',
         headers: {
           access_token: localStorage.access_token,
         },
@@ -116,7 +116,7 @@ export default new Vuex.Store({
     deleteProductCart(context, orderId) {
       Axios({
         method: 'DELETE',
-        url: `http://localhost:3000/orders/${orderId}`,
+        url: `https://sabacomputer.herokuapp.com/orders/${orderId}`,
         headers: {
           access_token: localStorage.access_token,
         },
@@ -138,7 +138,7 @@ export default new Vuex.Store({
     checkoutProductCart(context) {
       Axios({
         method: 'PUT',
-        url: 'http://localhost:3000/orders/check-out',
+        url: 'https://sabacomputer.herokuapp.com/orders/check-out',
         headers: {
           access_token: localStorage.access_token,
         },
@@ -164,7 +164,7 @@ export default new Vuex.Store({
     register(context, payload) {
       Axios({
         method: 'POST',
-        url: 'http://localhost:3000/register',
+        url: 'https://sabacomputer.herokuapp.com/register',
         data: payload,
       })
         .then(() => {
@@ -188,7 +188,7 @@ export default new Vuex.Store({
     submitLogin(context, payload) {
       Axios({
         method: 'POST',
-        url: 'http://localhost:3000/login',
+        url: 'https://sabacomputer.herokuapp.com/login',
         data: payload,
       })
         .then((response) => {
