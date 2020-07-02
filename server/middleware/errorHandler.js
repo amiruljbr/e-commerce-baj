@@ -29,6 +29,11 @@ function errorHandler(err, req, res, next){
       errorCode = err.name;
       errorMassage = `You're not authorized to do this`;      
       break;
+    case 'NOT_VALID_STOCK':
+      statusCode = 403;
+      errorCode = err.name;
+      errorMassage = `Invalid Product Stock, please delete product that not valid stok`;      
+      break;
     case 'SequelizeValidationError':
       statusCode = 400;
       errorCode = "VALIDATION_ERROR";

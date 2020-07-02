@@ -1,0 +1,57 @@
+<template>
+<div>
+  <Navbar/>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-3 card" style="margin: 1em auto;">
+        <form  @submit.prevent="submitLogin" class="form-signin" id="login-form">
+          <img class="mb-4" src="https://2.bp.blogspot.com/-2TZJ3M9sSx4/Vs7gZnFNwgI/AAAAAAAABUM/v3R88LMR0Zc/s1600/login.png" alt="" width="100" height="72">
+          <h6 class="h3 mb-3 font-weight-normal">Please sign in</h6>
+          <label for="inputEmail" class="sr-only">Email address</label>
+          <input v-model="loginEmail" placeholder="Input Email" type="email" id="inputLoginEmail" class="form-control" required>
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input v-model="loginPassword" placeholder="Input Password" type="password" class="form-control" minlength="6" required>
+          <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" value="remember-me"> Remember me
+            </label>
+          </div>
+          <br>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+          <br>
+          <p>Don't have account? <router-link class="p" to="/register">Register</router-link></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</template>
+
+<script>
+import Navbar from '../components/Navbar.vue';
+
+export default {
+  name: 'Login',
+  data() {
+    return {
+      loginEmail: '',
+      loginPassword: '',
+    };
+  },
+  methods: {
+    submitLogin() {
+      const data = {
+        email: this.loginEmail,
+        password: this.loginPassword,
+      };
+      this.$store.dispatch('submitLogin', data);
+    },
+  },
+  components: {
+    Navbar,
+  },
+};
+</script>
+
+<style scoped>
+</style>

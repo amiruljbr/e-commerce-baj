@@ -10,7 +10,11 @@ module.exports = {
       },
       qty: {
         allowNull: false,
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
+      },
+      total: {
+        allowNull: false,
+        type: Sequelize.INTEGER
       },
       checkout_date: {
         type: Sequelize.DATE
@@ -22,7 +26,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      OrderId: {
+      UserId: {
         allowNull: false,
         type: Sequelize.INTEGER
       },

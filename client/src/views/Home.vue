@@ -1,18 +1,54 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <section>
+    <Navbar/>
+    <div class="container" >
+      <br>
+      <br>
+      <br>
+      <Dasboard/>
+    </div>
+  </section>
 </template>
 
 <script>
+import Dasboard from '../components/Dashboard.vue';
+import Navbar from '../components/Navbar.vue';
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
-
 export default {
   name: 'Home',
+  data() {
+    return {
+      showModal: false,
+      inputName: null,
+      inputImage: null,
+      inputPrice: null,
+      inputStock: null,
+    };
+  },
+  computed: {
+  },
+  methods: {
+    submitAddProduct() {
+      console.log('proses add product');
+      const payload = {
+        name: this.inputName,
+        image_url: this.inputImage,
+        price: this.inputPrice,
+        stock: this.inputStock,
+      };
+      this.$store.dispatch('createProduct', payload);
+      this.showModal = false;
+      this.inputName = null;
+      this.inputImage = null;
+      this.inputPrice = null;
+      this.inputStock = null;
+    },
+  },
   components: {
-    HelloWorld,
+    Navbar, Dasboard,
   },
 };
 </script>
+
+<style>
+</style>

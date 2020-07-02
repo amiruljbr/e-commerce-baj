@@ -16,11 +16,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Order.init({
-    qty: DataTypes.NUMBER,
+    qty: DataTypes.INTEGER,
+    total: DataTypes.INTEGER,
     checkout_date: DataTypes.DATE,
     status: DataTypes.STRING,
     ProductId: DataTypes.INTEGER,
-    OrderId: DataTypes.INTEGER
+    UserId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Order',
